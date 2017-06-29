@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  server:
+    build: .
+    volumes:
+      - 'data:/go:rw'
+      - '.:/go/src/go-grpc'
+    expose:
+      - 8080
+  client:
+    build: .
+    volumes:
+      - 'data:/go:rw'
+      - '.:/go/src/go-grpc'
+    links:
+      - server
+volumes:
+  data:
+    driver: 'local'
