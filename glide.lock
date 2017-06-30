@@ -1,5 +1,5 @@
-hash: e8e05b93a87e97affa3526b5906a4d88cf9b4f4748cd22c3973ade51523beaa6
-updated: 2017-06-29T17:07:05.040711658Z
+hash: b53ed5d74dd57d3186e85d0205b672bdf84758bc14fb7555927de137a5211ba9
+updated: 2017-06-29T17:53:16.921406158Z
 imports:
 - name: github.com/golang/protobuf
   version: 6a1fa9404c0aebf36c879bc50152edcc953910d2
@@ -7,7 +7,7 @@ imports:
   - proto
   - ptypes/any
 - name: golang.org/x/net
-  version: c81e7f25cb61200d8bf0ae971a0bac8cb638d5bc
+  version: 1f9224279e98554b6a6432d4dd998a739f8b2b7c
   subpackages:
   - context
   - http2
