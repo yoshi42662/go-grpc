@@ -15,6 +15,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	defer conn.Close()
 
 	client := pb.NewPingpongClient(conn)
@@ -25,5 +26,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	fmt.Println(feature)
 }
