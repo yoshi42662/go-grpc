@@ -34,6 +34,3 @@ RUN go get github.com/pilu/fresh
 
 # Install packages via glide
 RUN glide install
-
-# Command for creating file
-# protoc --go_out=plugins=grpc:. pb/*.proto
