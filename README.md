@@ -1,8 +1,8 @@
 # go-grpc
 
-Dockerized golang API application using grpc.
+Dockerized golang API application using gRPC.
 
-### Usage
+### Quick Start
 
 - Get repository
 ```bash
@@ -18,7 +18,7 @@ $ docker-compose build
 ```bash
 $ docker-compose run server bash
 # -> Get into server container
-(server) $ go run server/server.go
+(server-container) $ go run server/server.go
 ```
 
 - Get into server container from different console and run client.go
@@ -28,8 +28,25 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 a69220a48eda        gogrpc_server       "bash"              20 minutes ago      Up 20 minutes       8080/tcp            gogrpc_server_run_1
 
-# Get into gogrpc_server container with container ID.
+# Get into same gogrpc_server container with container ID.
 $ docker exec -it a69220a48eda bash
 # -> Get into the same server container
 (server) $ go run client/client.go
 ```
+
+### Generate .go source from your own .proto file.
+
+- Get into server container
+```bash
+$ docker-compose run server bash
+```
+
+- Run `protoc` command
+```bash
+(server-container) $ protoc --go_out=plugins=grpc:. pb/*.proto
+```
+
+### To Do
+
+- [ ] Split server container and client container
+- [ ] Automatically generate .go source from `.proto` files on file change
