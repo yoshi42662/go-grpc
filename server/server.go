@@ -20,7 +20,7 @@ func (p *pingpongServer) Ping(c context.Context, ping *pb.PingRequest) (*pb.Ping
 
 	pong := pb.PingResponse{
 		Ping: ping.Ping,
-		Pong: "pong pong",
+		Pong: "pong",
 	}
 
 	return &pong, nil
