@@ -6,30 +6,34 @@ import (
 
 	pb "client/pb"
 	"google.golang.org/grpc"
+	"time"
 )
 
 func main() {
-	// serverAddr := "127.0.0.1:8080"
 	host := "server"
 	port := "8080"
 
 	serverAddr := fmt.Sprintf("%s:%s", host, port)
 
-	conn, err := grpc.Dial(serverAddr, grpc.WithInsecure())
-	if err != nil {
-		fmt.Println(err)
+	for {
+		conn, err := grpc.Dial(serverAddr, grpc.WithInsecure())
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		defer conn.Close()
+
+		client := pb.NewPingpongClient(conn)
+		feature, err := client.Ping(context.Background(), &pb.PingRequest{
+			Ping: "ping",
+			Pong: "",
+		})
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		fmt.Println(feature)
+
+		time.Sleep(3 * time.Second)
 	}
-
-	defer conn.Close()
-
-	client := pb.NewPingpongClient(conn)
-	feature, err := client.Ping(context.Background(), &pb.PingRequest{
-		Ping: "ping",
-		Pong: "",
-	})
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Println(feature)
 }
