@@ -4,7 +4,6 @@ services:
   server:
     build: ./server
     volumes:
-      - 'data:/go:rw'
       - './server:/go/src/server'
     expose:
       - 8080
@@ -14,7 +13,6 @@ services:
   client:
     build: ./client
     volumes:
-      - 'data:/go:rw'
       - './client:/go/src/client'
     links:
       - server
