@@ -1,4 +1,4 @@
-package: go-grpc
+package: server
 import:
 - package: github.com/golang/protobuf
   subpackages:

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	pb "go-grpc/pb"
+	pb "client/pb"
 	"google.golang.org/grpc"
 )
 

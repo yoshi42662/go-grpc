@@ -1,5 +1,5 @@
 # FROM golang
-FROM golang:1.8
+FROM golang:1.9.1
 
 # Set timezone to Asia/Tokyo
 ENV TZ /usr/share/zoneinfo/Asia/Tokyo
@@ -25,9 +25,9 @@ RUN curl https://glide.sh/get | sh
 
 # Add the local package files to the container's workspace.
 COPY ./ /go/src/
-COPY ./ /go/src/go-grpc/
+COPY ./ /go/src/server/
 
-WORKDIR /go/src/go-grpc/
+WORKDIR /go/src/server/
 
 # Install fresh for live reloading
 RUN go get github.com/pilu/fresh

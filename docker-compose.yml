@@ -2,25 +2,27 @@ version: '3.3'
 
 services:
   server:
-    build: .
+    build: ./server
     volumes:
       - 'data:/go:rw'
-      - '.:/go/src/go-grpc'
+      - './server:/go/src/server'
+      # - './pb:/go/src/server/pb'
     expose:
       - 8080
     ports:
       - 8080:8080
-    command: bash -c 'cd /go/src/go-grpc/server && go run server.go'
+    command: bash -c 'cd /go/src/server && go run server.go'
   client:
-    build: .
+    build: ./client
     volumes:
       - 'data:/go:rw'
-      - '.:/go/src/go-grpc'
+      - './client:/go/src/client'
+      # - './pb:/go/src/client/pb'
     # expose:
     #   - 8080
     links:
       - server
-    command: bash -c 'cd /go/src/go-grpc/client && go run client.go'
+    command: bash -c 'cd /go/src/client && go run client.go'
 volumes:
   data:
     driver: 'local'

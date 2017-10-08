@@ -7,7 +7,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	pb "go-grpc/pb"
+	pb "server/pb"
 	"google.golang.org/grpc"
 )
 
