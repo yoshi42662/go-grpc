@@ -1,11 +1,15 @@
-hash: b53ed5d74dd57d3186e85d0205b672bdf84758bc14fb7555927de137a5211ba9
-updated: 2017-06-29T17:53:16.921406158Z
+hash: 655d92a408b85e061bd492c939af54ef1eb136fa25c345c78d9aad08d9b6850e
+updated: 2017-10-08T17:02:42.194517375Z
 imports:
 - name: github.com/golang/protobuf
   version: 6a1fa9404c0aebf36c879bc50152edcc953910d2
   subpackages:
   - proto
+  - protoc-gen-go
+  - ptypes
   - ptypes/any
+  - ptypes/duration
+  - ptypes/timestamp
 - name: golang.org/x/net
   version: 1f9224279e98554b6a6432d4dd998a739f8b2b7c
   subpackages:
@@ -28,11 +32,12 @@ imports:
   subpackages:
   - googleapis/rpc/status
 - name: google.golang.org/grpc
-  version: b15215fb911b24a5d61d57feec4233d610530464
+  version: f92cdcd7dcdc69e81b2d7b338479a19a8723cfa3
   subpackages:
   - codes
+  - connectivity
   - credentials
-  - grpclb/grpc_lb_v1
+  - grpclb/grpc_lb_v1/messages
   - grpclog
   - internal
   - keepalive
