@@ -7,15 +7,15 @@ import (
 
 	"golang.org/x/net/context"
 
-	pb "server/pb"
 	"google.golang.org/grpc"
+	pb "server/pb"
 )
 
 type pingpongServer struct {
 }
 
 func (p *pingpongServer) Ping(c context.Context, ping *pb.PingRequest) (*pb.PingResponse, error) {
-  fmt.Println("Request recieved.")
+	fmt.Println("Request recieved.")
 	fmt.Println(ping.Ping)
 
 	pong := pb.PingResponse{
