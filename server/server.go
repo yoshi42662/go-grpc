@@ -12,6 +12,7 @@ import (
 )
 
 type pingpongServer struct {
+
 }
 
 func (p *pingpongServer) Ping(c context.Context, ping *pb.PingRequest) (*pb.PingResponse, error) {

@@ -6,7 +6,6 @@ services:
     volumes:
       - 'data:/go:rw'
       - './server:/go/src/server'
-      # - './pb:/go/src/server/pb'
     expose:
       - 8080
     ports:
@@ -17,9 +16,6 @@ services:
     volumes:
       - 'data:/go:rw'
       - './client:/go/src/client'
-      # - './pb:/go/src/client/pb'
-    # expose:
-    #   - 8080
     links:
       - server
     command: bash -c 'cd /go/src/client && go run client.go'
