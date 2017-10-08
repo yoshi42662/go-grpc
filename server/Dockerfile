@@ -29,6 +29,9 @@ COPY ./ /go/src/server/
 
 WORKDIR /go/src/server/
 
+# Install go protobuf generator
+RUN go get github.com/golang/protobuf/protoc-gen-go
+
 # Install fresh for live reloading
 RUN go get github.com/pilu/fresh
 
