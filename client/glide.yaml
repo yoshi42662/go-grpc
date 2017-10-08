@@ -3,6 +3,7 @@ import:
 - package: github.com/golang/protobuf
   subpackages:
   - proto
+  - protoc-gen-go
 - package: golang.org/x/net
   subpackages:
   - context
