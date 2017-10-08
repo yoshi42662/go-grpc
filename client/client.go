@@ -9,7 +9,11 @@ import (
 )
 
 func main() {
-	serverAddr := "127.0.0.1:8080"
+	// serverAddr := "127.0.0.1:8080"
+	host := "server"
+	port := "8080"
+
+	serverAddr := fmt.Sprintf("%s:%s", host, port)
 
 	conn, err := grpc.Dial(serverAddr, grpc.WithInsecure())
 	if err != nil {
