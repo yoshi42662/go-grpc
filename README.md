@@ -14,24 +14,9 @@ $ git clone git@github.com:yoshi42662/go-grpc.git
 $ docker-compose build
 ```
 
-- Get into server container and run server.go
+- Run
 ```bash
-$ docker-compose run server bash
-# -> Get into server container
-(server-container) $ go run server/server.go
-```
-
-- Get into server container from different console and run client.go
-```bash
-# List all running containers
-$ docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-a69220a48eda        gogrpc_server       "bash"              20 minutes ago      Up 20 minutes       8080/tcp            gogrpc_server_run_1
-
-# Get into same gogrpc_server container with container ID.
-$ docker exec -it a69220a48eda bash
-# -> Get into the same server container
-(server) $ go run client/client.go
+$ docker-compose up
 ```
 
 ### Generate .go source from your own .proto file.
@@ -43,10 +28,5 @@ $ docker-compose run server bash
 
 - Run `protoc` command
 ```bash
-(server-container) $ protoc --go_out=plugins=grpc:. pb/*.proto
+root@container_id:/go/src/server# protoc --go_out=plugins=grpc:. pb/*.proto
 ```
-
-### To Do
-
-- [ ] Split server container and client container
-- [ ] Automatically generate .go source from `.proto` files on file change
