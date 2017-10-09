@@ -19,6 +19,9 @@ jobs:
     steps:
       - checkout
       - run: ls -la
+      - run: go get github.com/golang/protobuf/protoc-gen-go
+      - run: go get github.com/pilu/fresh
+      - run: glide install
       - run: go test ./...
         # name: go test server
         # command: go test ./...
