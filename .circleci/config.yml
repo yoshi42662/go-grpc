@@ -24,7 +24,7 @@ jobs:
       - run: curl https://glide.sh/get | sh
       - run: cd ./server && glide install
       # - run:
-      - run: go test -v -cover ./...
+      - run: cd ./server && go test -v -cover ./...
 
 workflows:
 version: 2
