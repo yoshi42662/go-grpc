@@ -8,7 +8,7 @@ import (
 	"golang.org/x/net/context"
 
 	"google.golang.org/grpc"
-	pb "server/pb"
+	pb "go-grpc/server/pb"
 )
 
 type pingpongServer struct {
