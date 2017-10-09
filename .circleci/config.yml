@@ -1,10 +1,12 @@
 version: 2
 jobs:
   build:
-    docker:
+    machine:
+      enabled: true
+    # docker:
       # specify the version
       # - image: circleci/golang:latest
-      machine: true
+      # machine: true
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
