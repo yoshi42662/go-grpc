@@ -18,8 +18,14 @@ jobs:
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
+      - run:
+        name: Install Docker Compose
+        command: |
+          set -x
+          curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+          chmod +x /usr/local/bin/docker-compose
       - run: ls -la
-
+      - setup_remote_docker
       - run: go get github.com/golang/protobuf/protoc-gen-go
       - run: curl https://glide.sh/get | sh
       - run: cd ./server && glide install
