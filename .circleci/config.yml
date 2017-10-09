@@ -22,11 +22,8 @@ jobs:
       - run: cd ./server
       - run: go get github.com/golang/protobuf/protoc-gen-go
       - run: curl https://glide.sh/get | sh
-      - run: glide install
-      - run: go test ./...
-        # name: go test server
-        # command: go test ./...
-      # - run: docker-compose run server go test -v -cover ./...
+      - run: glide install --yaml /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}/server/glide.yml
+      - run: go test -v -cover ./...
 
 workflows:
 version: 2
