@@ -19,8 +19,10 @@ jobs:
     steps:
       - checkout
       - run: ls -la
-      - run: docker-compose run server glide install
-      - run: docker-compose run server go test -v -cover ./...
+      - run:
+        name: go test server
+        command: go test ./...
+      # - run: docker-compose run server go test -v -cover ./...
 
 workflows:
 version: 2
