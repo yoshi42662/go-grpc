@@ -19,5 +19,6 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
+      - run: docker-compose run server bash
       - run: glide install
       - run: go test -v ./...
